@@ -4,4 +4,19 @@ services:
     build: .
     ports:
       - "3000:3000"
-    env_file: .env
+    environment:
+      - PORT=3000
+    depends_on:
+      - mongo-db
+    #env_file: ./.env
+
+  mongo-db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    volumes:
+      - mongo-db-volume:/data/db
+
+volumes:
+  mongo-db-volume:

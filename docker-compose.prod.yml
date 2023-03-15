@@ -1,6 +1,14 @@
 version: "3"
 services:
   node-app:
+    build: 
+      context: .
+      args:
+        NODE_ENV: producion
     environment:
       - NODE_ENV=development
-    command: npm run prod
+    command: node index.js
+  mongo-db:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
