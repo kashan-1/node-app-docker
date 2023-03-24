@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { MONGO_USER, MONGO_PASS, MONGO_IP, MONGO_PORT } = require('./configs/config');
 
 const app = express();
-const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
+//const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
 
 mongoose
     .connect(mongoURL, {
@@ -15,7 +15,7 @@ mongoose
     .catch((err) => console.log(err));
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World !');
 });
 
 const port = process.env.PORT || 3000;
